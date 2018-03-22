@@ -1,0 +1,101 @@
+var express = require('express');
+var app = express();
+//express模块导入
+var userLoin=require("./opDb/userLogin");
+var getTogether=require("./opDb/getTogether");
+var getComments=require("./opDb/getComments");
+var TByCity=require("./opDb/TByCity");
+var getOrder=require("./opDb/getOrder");
+var getOrderPage=require("./opDb/getOrderPage");
+var insertCom=require("./opDb/insertCom");
+var getReply=require("./opDb/getReply");
+var insertReply=require("./opDb/insertReply");
+var registerUser=require("./opDb/registerUser");
+var opOrder=require("./opDb/opOrder");
+var insertOrder=require("./opDb/insertOrder");
+var getpersonT=require("./opDb/getpersonT");
+var insertLeaveWords=require("./opDb/insertLeaveWords");
+var insertTogether=require("./opDb/insertTogether");
+var getLeaveWords=require("./opDb/getLeaveWords");
+var getFinishCount=require("./opDb/getFinishCount");
+var getLeaveWordsRep=require("./opDb/getLeaveWordsRep");
+var insertRepLea=require("./opDb/insertRepLea");
+var insertImage=require("./opDb/insertImage");
+var getPhoto=require("./opDb/getPhoto");
+var getCerCount=require("./opDb/getCerCount");
+var getUserInfo=require("./opDb/getUserInfo");
+var report=require("./opDb/report");
+var deleteTogether=require("./opDb/deleteTogether");
+var changePhoto=require("./opDb/changePhoto");
+var getPicture=require("./page/getPicture");
+var going=require("./page/goOtherPages");
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    if(req.method=="OPTIONS") res.send(200);/*让options请求快速返回*/
+    else  next();
+});
+app.get('/login',userLoin.checkUser);
+app.get('/together',getTogether.together);
+app.get('/comments',getComments.comments);
+app.get('/TByCity',TByCity.TByCity);
+app.get('/insertCom',insertCom.insertCom);
+app.get('/getOrder',getOrder.order);
+app.get('/MOrder',getOrder.MOrder);
+app.get('/MgetOrder',getOrder.MgetOrder);
+app.get('/getReply',getReply.reply);
+app.get('/insertReply',insertReply.insertReply);
+app.get('/registerUser',registerUser.register);
+app.get('/opOrder',opOrder.opOrder);
+app.get('/getpersonT',getpersonT.personT);
+app.get('/getLeaveWords',getLeaveWords.leaveWords);
+app.get('/getLeaveWordsRep',getLeaveWordsRep.leaveWordsRep);
+app.get('/getPicture',getPicture.getPicture);
+app.get('/upPhoto',getPicture.getPhoto);
+app.get('/getPhoto',getPhoto.getPhoto);
+app.get('/insertImage',insertImage.insertImage);
+app.get('/userInfo',getUserInfo.userInfo);
+app.get('/insertOrder',insertOrder.insertOrder);
+app.get('/getFinishCount',getFinishCount.getFinishCount);
+app.get('/insertRepLea',insertRepLea.insertRepLea);
+app.get('/insertTogether',insertTogether.insertTogether);
+app.get('/insertWords',insertLeaveWords.insertWords);
+app.get('/getCerCount',getCerCount.getCerCount);
+app.get('/getCer',getCerCount.getCer);
+app.get('/getOne',getTogether.getOne);
+app.get('/getsameCity',getTogether.getsameCity);
+app.get('/del',deleteTogether.delete);
+app.get('/insertCer',getCerCount.insertCer);
+app.get('/reportLeave',report.reportLeave);
+app.get('/getOrderPage',getOrderPage.getOrderPage);
+app.get('/lookOrder',opOrder.lookOrder);
+app.get('/changePhoto',changePhoto.Photo);
+app.get('/changeUser',changePhoto.changeUser);
+//检测用户登录
+app.use(express.static("../css"));
+app.use(express.static("../js"));
+app.use(express.static("../images"));
+app.use(express.static("../picture"));
+app.use(express.static("../photo"));
+app.use(express.static("../Mhtml"));
+app.use(express.static("../MCss"));
+app.use(express.static("../MJs"));
+app.get("/homePage.html",going.going);
+app.get("/register.html",going.going);
+app.get("/login.html",going.going);
+app.get("/together.html",going.going);
+app.get("/play.html",going.going);
+app.get("/order.html",going.going);
+app.get("/userinfo.html",going.going);
+app.get("/personal.html",going.going);
+
+//app.get("/register.html",going.going);
+//登录界面
+var server = app.listen(1234, function (request,response) {
+  var host = server.address().address;
+  var port = server.address().port;        
+  console.log("http://", host, port);
+});
+//端口1234监听

@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <title>同行</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css" href="/personal.css">
+    <link rel="stylesheet" type="text/css" href="/newPersonal.css">
+</head>
+<body>
+ <div class="nav" id="nav">
+    <div class="logo">
+        <span class="the">Sharing</span> 
+        <span class="star">Car</span>
+    </div>
+    <div class="navName">
+        <nav>
+             <div class="firstNavName" id="homePage">首页</div>
+             <div class="tag" id="together" style="color:rgb(255,255,255);background-color: rgb(2,178,181);">同行</div>
+             <div class="tag" id="play">行程</div>
+             <div class="photo" id="photo" onclick="userInfo()"></div>
+             <span id="show">未登录</span>
+             <span style="color: red" onclick="out()">注销</span>
+        </nav>
+    </div>
+</div>
+<div id="newMain" style=" background-color: #C3E8FF;width: 1500px;height: 200px;position: absolute;margin-top: 111px">
+ <div class="main" id="main">
+      <div style="float: left;height: 50px;margin-left:150px;">
+        <div class="picture" id="picture"></div>
+        </div>
+        <div class="userId" id="userId"></div>
+        <div id="changeP">
+               
+        </div>
+      <!--   <div id="changeInfo">编辑信息</div> -->
+        <div style="width: 400px;height: 30px;margin-top: 145px;margin-left: 290px;">
+             <div class="myPlay" id="mainPage" name="1"></div>
+             <div class="makePlay" id="com" name="2"></div>
+             <div class="personM" id="personM"></div>
+        </div>
+ </div>
+ </div>
+ <div class="layout" id="layout"></div>
+ <div class="leaveOfL" id="leaveOfL" style="bottom: -150px;">
+         <textarea class='leaveWords3' id="leaveWords3"></textarea>
+         <div>
+           <div class='noSubFour' onclick="noSubFour()">取消</div>
+           <div class='subFour' id='subFour' onclick="subFourRep()">发表</div>
+         </div>
+ </div>
+ <div class="" id="attest" style="display: none;">
+ <div class="closeofCer" onclick="close2()"></div>
+        <div class="list">
+            <div>&nbsp&nbsp&nbsp&nbsp车牌号<input id="cer1" class="inp" type="text" placeholder="请输入"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp车型<input id="cer2" class="inp" type="text" placeholder="车辆品牌型号"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp车辆颜色<input id="cer3" class="inp" type="text" placeholder="请输入"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp驾龄<input id="cer4" class="inp" type="text" placeholder="请输入"></div>
+            <div style="color:black;background: #F6F6F8;width: 80%">#驾驶证(黑本)</div>
+            <div>&nbsp&nbsp&nbsp&nbsp真实姓名<input id="cer5" class="inp" type="text"  placeholder="真实姓名要与驾照相符"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp驾驶证号<input id="cer6" class="inp" type="text"  placeholder="请输入"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp初次领证日期<input id="cer7" class="inp" type="date"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp有效起始日期<input id="cer8" class="inp" type="date"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp有效期限<input id="cer9" class="inp" type="text" placeholder="请输入"></div>
+            <div style="color:black;background: #F6F6F8;width: 80%">#行驶证(蓝本)</div>
+            <div>&nbsp&nbsp&nbsp&nbsp发动机号<input id="cer10" class="inp" type="text" placeholder="请输入"></div>
+            <div>&nbsp&nbsp&nbsp&nbsp注册日期<input id="cer11" class="inp" type="date"></div>
+        </div>
+        <div class="subS" onclick="checkCer()">提交申请</div>
+ </div>
+
+<div id="InfoMsg">
+   <div class="closeofCer" onclick="stopChange()"></div>
+        <div class="list">
+             <div>&nbsp&nbsp&nbsp&nbsp昵称<input id="uName" class="inp" type="text" placeholder="请输入"></div>
+             <div>&nbsp&nbsp&nbsp&nbsp手机号<input id="telNum" class="inp" type="text" placeholder="请输入"></div>
+             <input style="margin-left: 40px" id="man"  type="radio" name="1" />男
+             <input id="woman"  type="radio"  name="1"/>女
+        </div>
+        <div class="subS" onclick="changeMsg()">提交修改</div>
+</div>
+ <div class="alertWindow" id="alertWindow"></div>
+ <div class="alertWindow2" id="alertWindow2"></div>
+ <div class="showImage"  id="showImage"><div class="close" id="close"></div></div>
+</body>
+    <script type="text/javascript" src="/jquery-3.2.1.min.js"></script> 
+    <script type="text/javascript" src="/json2.js"></script> 
+    <script type="text/javascript" src="/cookie.js"></script>
+    <script type="text/javascript" src="/personal.js"></script>
+    <script type="text/javascript" src="/newPersonal.js"></script>
+</html>

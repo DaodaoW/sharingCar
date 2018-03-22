@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" /> 
+<head>
+<link rel="stylesheet" href="MOrder.css"/>
+<link rel="stylesheet" href="MPlay.css"/>
+<link rel="stylesheet" href="getOrder.css"/>
+</head>
+<body>
+    <div class="headTipP" id="headTip">
+        <div class="titpP">订单</div>
+        <div class="headTipMT">
+           <div class="titT" @click="getrder()">已接订单</div>
+        </div>
+        <div class="choose">
+			<span v-bind:style="myOrder" @click="toleft">我的订单</span>
+			<span v-bind:style="getOrder" @click="toright()">我要接单</span>
+        </div>
+        <div class="underline" v-bind:class="{ underRight:show,underLeft:showT}"></div>
+    </div>
+
+
+    <div class="titpanel" id="titpanel" v-bind:class="{titLeft:headTip.show,titRight:headTip.showT}">
+			<div class="orderL" v-for="(item,index) in orderList">
+	  		<div>
+				<div class="picture"><img v-bind:src="item.picture"></div>
+				<div class="msg">
+					<div>{{ item.passenger }}&nbsp&nbsp&nbsp</div>
+				  <div>状态:{{ item.condtion }}&nbsp&nbsp&nbsp</div>
+          <div>{{ item.date }}&nbsp&nbsp&nbsp<span></div>
+				</div>
+				<div class="butn" v-bind:style="butn[index]" @click="opOrder(btn[index],item.orderNum,item.driver)">{{ btn[index] }}</div>
+	  		</div>
+	  		<div class="clear"></div>
+	  		<div>
+				 <div class="end"></div>
+				 <div  class="start">{{ item.SPlace }}</div>
+	  		</div> 
+	  		<div class="clear"></div>	
+	        <div> 
+				 <div class="endT"></div>
+				 <div class="start">{{ item.EPlace }}</div>
+	  		</div> 
+	  		 <div class="clear"></div>		    
+	    </div>
+	       <div class="blank"></div>
+      </div>
+
+     <div class="titpanel" id="orderPanel" v-show="show" v-bind:class="{orderGet:show,orderGetBack:back}">
+			<div class="orderL" v-for="(item,index) in orderList">
+	  		<div>
+				<div class="picture"><img @click="seeUser(item.passenger)" v-bind:src="item.picture"></div>
+				<div class="msg">
+					<div>{{ item.passenger }}&nbsp&nbsp&nbsp{{ item.city }}</div>
+				    <div>{{ item.date }}&nbsp&nbsp&nbsp</div>
+				</div>
+				<div class="butn" @click="get(item.orderNum)">可接单</div>
+	  		</div>
+	  		<div class="clear"></div>
+	  		<div>
+				 <div class="end"></div>
+				 <div  class="start">{{ item.SPlace }}</div>
+	  		</div> 
+	  		<div class="clear"></div>	
+	        <div> 
+				 <div class="endT"></div>
+				 <div class="start">{{ item.EPlace }}</div>
+	  		</div> 
+	  		<div class="clear"></div>		    
+	    </div>
+	    <div class="blankt"></div>
+     </div>
+
+      <div v-bind:class={showOne:show,showBackT:!show} v-bind:style="showTwoStyle" id="showThree">
+        <div class="headTip">
+           <div class="titp">{{ title }}</div>
+        </div>
+        <div class="headTipM">
+           <div class="close"  @click="toleft()"></div>
+        </div>
+        <div class="titpanel">
+         <div class="fen"></div>
+         <div class="repInfo">
+              <img class="Namet" v-bind:src="photo">
+              <div class="Name">{{ userName }}<span><img v-bind:src="sex"></span></div>
+              <div class="NameT">联系电话:{{ tel }}</div>
+         </div>
+         <div class="grayline"></div>
+         <div  class="someList" @click="lookLeave()">
+         <div class="list">
+          <div class="listName">
+            <span>查看留言</span>
+          </div>
+          <div class="listRight">
+            <img src="right.png">
+          </div>
+        </div>
+        </div>
+      </div>
+   </div>
+   <!-- 已接订单 -->
+   <div v-bind:class="{showOrder:shown}" v-show="shown" id="lookOrder">
+      <div class="titpP" style="height: 40px;border-bottom: 1px solid #CCCCCC">已接订单</div>
+      <div class="headTipG">
+           <div class="close"  @click="toleft()"></div>
+        </div>
+        <div class="titpanel">
+      <div class="orderL" v-for="(item,index) in orderList">
+        <div>
+        <div class="picture"  @click="orderPanel.seeUser(item.passenger)"><img v-bind:src="item.picture"></div>
+        <div class="msg">
+          <div>{{ item.passenger }}&nbsp&nbsp&nbsp</div>
+          <div>状态:{{ item.condtion }}&nbsp&nbsp&nbsp</div>
+          <div>{{ item.date }}&nbsp&nbsp&nbsp<span></div>
+        </div>
+        </div>
+        <div class="clear"></div>
+        <div>
+         <div class="end"></div>
+         <div  class="start">{{ item.SPlace }}</div>
+        </div> 
+        <div class="clear"></div> 
+          <div> 
+         <div class="endT"></div>
+         <div class="start">{{ item.EPlace }}</div>
+        </div> 
+         <div class="clear"></div>        
+      </div>
+         <div class="blank"></div>
+      </div>
+   </div>
+  <!--  用户留言 -->
+   <div v-bind:class={showOne:show,showBackT:!show} v-bind:style="showOneStyle" id="showOneT">
+      <div class="headTip">
+         <div class="titp">{{ title }}</div>
+      </div>
+      <div class="headTipM">
+         <div class="close" @click="toleft()"></div>
+      </div>
+    <div class="titpanel">
+      <div class="fen"></div>
+      <div class="rep" v-for="(item,index) in leaveWord">
+                    <div class="picture"><img v-bind:src="item.picture"></div>
+                    <div class="replyText" @click="replyPerson(item.nameOfLea,item.WId)">{{ item.nameOfLea }}:<span>{{ item.words }}</span></div>
+                    <div class="replyDate">{{ item.date }}</div>
+                    <div class="bottomline"></div>
+                    <div style="padding:0.15rem" v-for="rep in reply" v-if="item.WId==rep.WId">
+                        <div class="photo"><img v-bind:src="rep.picture"></div>
+                        <div class="replyText2" @click="replyPerson(rep.nameOfRep,rep.WId)">{{ rep.nameOfRep }}回复{{ rep.name }}:&nbsp<span>{{ rep.ReplyWords }}</span></div>
+                        <div class="replyDate2">{{ rep.date }}</div>
+                        <div class="bottomline"></div>
+                    </div>
+      </div>
+     </div>
+     <div class="foot" v-show="true">
+               <input type="text" @click="replyPerson()" readonly="readonly" id="reply" placeholder="发布留言">
+       </div>
+    </div>
+<!-- 发布留言 -->
+    <div class="showTwo" v-bind:class={showAction:action,showBack:!action} v-bind:style="showInputStyle" id="showInputT">
+      <div class="headTip">
+          <div class="titp">留言</div>
+      </div>
+      <div class="headTipM" id="headTipM">
+          <div class="titT" @click="close()">取消</div>
+      </div>
+      <div class="headTipMT">
+          <div class="titT" @click="subReply()">发送</div>
+      </div>
+      <div class="reallyInput">
+          <textarea type="text" autofocus="autofocus" v-bind:placeholder="pla" v-model="discuss" id="reply"></textarea>
+      </div>
+  </div>
+</body>
+<script type="text/javascript" src="/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src="/vue.min.js"></script>
+<script type="text/javascript" src="/vue-resource.min.js"></script>
+<script type="text/javascript" src="/match.js"></script>
+<script type="text/javascript" src="/cookie.js"></script>
+<script type="text/javascript" src="/MPlay.js"></script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="../js/ajax.js"></script> 
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script> 
+</head>
+<body>
+response here: <p id="lblResponse">fill me in</p>
+<button id="btn">点击获取</button>
+<script type="text/javascript">
+window.onload=function(){
+        function jsonpCallback(data) {
+                 console.log("jsonpCallback: " + data.name)
+                }
+    var daily=document.getElementById("btn");
+    daily.onclick=function(){
+         var data = {
+            name: 'gg',
+            id: 'hhh'
+        };
+     $.ajax({
+            url: 'http://127.0.0.1:1234/ajax/deal',
+            data: data,
+            dataType: 'jsonp',
+            cache: false,
+            timeout: 5000,
+        // jsonp 字段含义为服务器通过什么字段获取回调函数的名称
+        jsonp: 'callback',
+        // 声明本地回调函数的名称，jquery 默认随机生成一个函数名称
+        jsonpCallback: 'jsonpCallback',
+        success: function(data) {
+            console.log("ajax success callback: " + data.name+data.id);
+            alert(data.name)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus + ' ' + errorThrown);
+        }
+    });
+};
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+.right{
+	width: 480px;
+	height: 300px;
+	/*border: 1px solid red;*/
+	margin-top: 80px;
+	margin-left:100px;
+}
+.userName{
+	float: left;
+    outline:none;  
+	margin-top:30px;
+	margin-left: 30px;
+	border: 2px solid rgb(225,226,228);
+	width: 170px;
+	height: 30px;
+	border-radius: 10px;
+	font-size:16px;
+	padding-left: 20px;
+}
+.pwd{
+	float: left;
+    outline:none;  
+	margin-left: 33px;
+	border: 2px solid rgb(225,226,228);
+	width: 170px;
+	height: 30px;
+	border-radius: 10px;
+	font-size:16px;
+	padding-left: 20px;
+}
+.icon1{
+	float: left;
+	margin-top: 30px;
+	margin-left: 120px;
+	width: 37px;
+	height: 37px;
+	background: url(/user.png) no-repeat 0px 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+}
+.icon2{
+	float: left;
+	margin-left: 123px;
+	width: 30px;
+	height: 37px;
+	background: url(/pwd.png) no-repeat 0px 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+}
+.icon3{
+	float: left;
+	margin-left: 118px;
+	width: 35px;
+	height: 35px;
+	background: url(/tel.png) no-repeat 0px 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+}
+.userLogin{
+	margin-left: 165px;
+	height: 35px;
+	width: 180px;
+	cursor: pointer;
+	border-radius: 10px;
+	outline: none;
+	font-size: 20px;
+	color: #FFF;
+	border: 2px solid rgb(225,226,228);
+	background-color: rgb(2,178,181);
+	font-family: "宋体";
+}
+.userLogin:hover{
+	border: 2px solid rgb(2,178,181);
+}

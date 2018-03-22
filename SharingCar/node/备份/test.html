@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+		<button id="click">点击传数据</button>
+		<script>
+				$('#click').click(function(){  
+     			var txt="test"
+     			$.ajax({
+         			type:'post',  
+         			url:"/msgDelete",  
+         			data:{
+         				id:txt
+         			},
+         			success:function(data){ 
+             		if(data){  
+               		  	 console.log('成功了啊');  
+             			} else{  
+                 		 console.log("返回值为空");  
+            		 }  
+         }  
+     });  
+ })  
+		</script>
+</body>
+</html>

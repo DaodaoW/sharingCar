@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>xuexue</title>
+	<style>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+	</style>
+	<script type="text/javascript" src="/vue.min.js"></script>
+</head>
+<body>
+<div>
+<div id="example-1">
+  <div @click="show = !show">
+    Toggle render
+  </div>
+  <transition name="slide-fade">
+    <p v-if="show">hello</p>
+  </transition>
+</div>
+</div>
+<div id="app">
+  {{ message }}
+</div>
+<div id="app-2">
+  <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+</div>
+<div id="app-3">
+  <p v-if="seen">现在你看到我了</p>
+</div>
+<div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+<div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+<div id="tt">
+<div  v-show="!test">diu</br>wgffffff</br>ffffff</br>fffffff</br>ffff</br>ffffff</br>ffff</div>
+<button @click="j.cc()">dianji</button>
+</div>
+<div id="appf">
+  <input type="checkbox" v-model="toggle" class="toggle">
+  <input type="text" v-if="toggle" v-focus>
+</div>
+</body>
+<script>
+new Vue({
+  el: '#appf',
+  data: {
+    toggle: true
+  },
+  directives: {
+    focus: {
+      // 当绑定元素插入到 DOM 中。
+      inserted: function (el) {
+        // 聚焦元素
+        el.focus()
+      }
+    }
+   }
+})
+var gg=new Vue({
+  el:"#gg",
+  data:{
+    hh:true
+  },
+  methods:{
+    fun:function(){
+      alert("hhhh")
+    }
+  }
+})
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  }
+});
+var app2 = new Vue({
+  el: '#app-2',
+  data: {
+    message: '页面加载于 ' + new Date().toLocaleString()
+  }
+});
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    seen: true
+  }
+})
+var app4 = new Vue({
+  el: '#app-4',
+  data: {
+    todos: [
+      { text: '学习 JavaScript' },
+      { text: '学习 Vue' },
+      { text: '整个牛项目' }
+    ]
+  }
+})
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    message: 'Hello Vue.js!'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+new Vue({
+  el: '#example-1',
+  data: {
+    show: true
+  }
+})
+var j=new Vue({
+    el:"#tt",
+    data:{
+        test:false
+    },
+    methods:{
+        cc:function(){
+            this.test=!this.test;
+        }
+    }
+})
+</script>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Document</title>
+ <script type="text/javascript" src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+ <style type="text/css">
+ #box {
+  width: 100%;
+  height: 2000px;
+ }
+ </style>
+</head>
+<div id="box"></div>
+<body>
+ <script type="text/javascript">
+ var vm = new Vue({
+   el:'#box',
+  data() {
+   return {
+    scroll: ''
+   }
+  },
+  methods: {
+   menu() {
+    this.scroll = document.body.scrollTop;
+    alert(this.scroll)
+   }
+  },
+  mounted() {
+   window.addEventListener('scroll', this.menu)
+  },
+ })
+ </script>
+</body>
+</html> -->

@@ -1,0 +1,359 @@
+.orderGet{
+    display: block;
+	background: #FFFFFF;
+	animation:orderGet 0.6s;
+    -moz-animation:orderGet 0.6s; 
+    -webkit-animation:orderGet 0.6s; 
+    -o-animation:orderGet 0.6s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes orderGet
+{
+from {margin-left: 100%}
+to {margin-left:0%}
+}
+
+@-moz-keyframes orderGet
+{
+from {margin-left: 100%}
+to {margin-left: 0}
+}
+
+@-webkit-keyframes orderGet
+{
+from {margin-left: 100%}
+to {margin-left: 0}
+}
+
+@-o-keyframes orderGet
+{
+from {margin-left: 100%}
+to {margin-left: 0}
+}
+.orderGetBack{
+	background: #FFFFFF;
+	animation:orderGetBack 0.6s;
+    -moz-animation:orderGetBack 0.6s; 
+    -webkit-animation:orderGetBack 0.6s; 
+    -o-animation:orderGetBack 0.6s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes orderGetBack
+{
+from {margin-left: 0%}
+to {margin-left:100%}
+}
+
+@-moz-keyframes orderGetBack
+{
+from {margin-left: 0%}
+to {margin-left:100%}
+}
+
+@-webkit-keyframes orderGetBack
+{
+from {margin-left: 0%}
+to {margin-left:100%}
+}
+
+@-o-keyframes orderGetBack
+{
+from {margin-left: 0%}
+to {margin-left:100%}
+}
+.blank{
+	height: 80px;
+	width: 100%
+}
+.Name{
+    font-size: 80%;
+}
+.NameT{
+    font-size: 50%;
+}
+.Name img{
+    width: 0.5rem;
+    height: 0.51rem;
+    border-radius: 0;
+}
+.grayline{
+    height: 25px;
+    width: 100%;
+    background: #F6F6F8;
+    margin-top: 0.5rem;
+}
+/*.fen{
+    margin-top: 40px;
+}*/
+.repInfo{
+    padding-left: 0.3rem;
+    padding-top: 0.5rem;
+    text-align: center;
+}
+.Namet{
+    height: 1.7rem;
+    width: 1.7rem;
+    border-radius: 1rem;
+}
+.titp{
+    margin-top: 10px;
+    float: left;
+    text-align: center;
+    font-weight: 600;
+    font-size: 50%;
+    width: 100%;
+}
+.close{
+    float: left;
+    height:25px;
+    width:26px;
+    background: red;
+    margin-top: 10px;
+    margin-left: 15%;
+    background: url(/left.png) no-repeat 0px 0px;
+    background-size:cover;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+}
+.showOne{
+    background-color: #FFFFFF;
+    height: 100%;
+    position:fixed;
+    width:100%;
+    z-index: 2002;
+    animation:showOne 0.3s;
+    -moz-animation:showOne 0.3s; 
+    -webkit-animation:showOne 0.3s; 
+    -o-animation:showOne 0.3s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling: touch;
+}
+@keyframes showOne
+{
+    from {margin-left: 100%}
+    to {margin-left: 0%}
+}
+
+@-moz-keyframes showOne
+{
+    from {margin-left: 100%}
+    to {margin-left: 0%}
+}
+
+@-webkit-keyframes showOne
+{
+    from {margin-left: 100%}
+    to {margin-left: 0%}
+}
+
+@-o-keyframes showOne
+{
+    from {margin-left: 100%}
+    to {margin-left: 0%}
+}
+.showTwo{
+    height: 100%;
+    background-color: #FFFFFF;
+    position:fixed;
+    width:100%;
+    z-index: 2002;
+    display: none;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.showBackT{
+    background-color: #FFFFFF;
+    height: 100%;
+    position:fixed;
+    width:100%;
+    z-index: 2000;
+    animation:showBackT 0.3s;
+    -moz-animation:showBackT 0.3s; 
+    -webkit-animation:showBackT 0.3s; 
+    -o-animation:showBackT 0.3s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes showBackT
+{
+from {margin-left: 0%}
+to {margin-left: 100%}
+}
+
+@-moz-keyframes showBackT
+{
+from {margin-left: 0%}
+to {margin-left: 100%}
+}
+
+@-webkit-keyframes showBackT
+{
+from {margin-left: 0%}
+to {margin-left: 100%}
+}
+
+@-o-keyframes showBackT
+{
+from {margin-left: 0%}
+to {margin-left: 100%}
+}
+.someList{
+    padding-top: 0.25rem;
+    padding-left: 0.55rem;
+    overflow-y: hidden;
+    width: 100%;
+    height:1rem;
+    border-bottom: 1px solid #E6E6E6;
+    font-size: 50%;
+}
+.blankt{
+    height: 10px;
+    width: 100%;
+    background: #F5F5F5;
+}
+.list img{
+    float: left;
+    width: 0.7rem;
+    height:0.7rem;
+}
+.listName{
+    font-size: 100%;
+    float: left;
+    text-align: left;
+    margin-left: 10%;
+}
+.listRight{
+    color: #CCCCCC;
+    position: absolute;
+    width: 5%;
+    float: left;
+    margin-left: 85%;
+    text-align: right;
+    font-size: 40%;
+    font-weight: 900;
+}
+.listRight img{
+    width: 0.5rem;
+    height: 0.65rem;
+}
+.replyText{
+    font-size: 50%;
+    margin-left:1.5rem;
+    color: #707070;
+}
+.replyText span{
+    color: #000000;
+}
+.rep{
+    padding-left: 0.3rem;
+    padding-top: 0.2rem;
+}
+.replyDate{
+    margin-left:1.5rem;
+    color: #707070;
+    font-size: 40%;
+    padding-bottom: 0.2rem;
+}
+.replyText2{
+    font-size: 50%;
+    margin-left:2.5rem;
+    color: #707070;
+}
+.replyText2 span{
+    color: #000000;
+}
+.replyDate2{
+    color: #707070;
+    font-size: 40%;
+    padding-bottom: 0.2rem;
+    margin-left: 2.5rem;
+}
+.bottomline{
+    width: 100%;
+    border-bottom:1px solid #CCCCCC;
+    margin-top: 0.01rem;
+}
+.photo{
+    float: left;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius:1rem;
+}
+.picture img{
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius:1rem;
+}
+.photo img{
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius:1rem;
+    margin-left: 1rem;
+}
+.foot{
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    background: #FFFFFF;
+    z-index: 1004;
+    border-top: 0.01rem solid #CCCCCC;
+    bottom: 0px;
+}
+.foot input{
+    position: absolute;
+    background: #E6E6E6;
+    border-radius: 5px;
+    width: 88%;
+    height:25px;
+    margin-top:5px;
+    margin-left: 4%;
+    border: none;
+    outline: none;
+    font-size: 50%;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+    -webkit-user-select:none;
+}
+.titT{
+    font-size: 50%;
+    margin-top: 10px;
+    float: left;
+    width: 100%;
+    color: #707070;
+}
+.reallyInput{
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height:30%;
+    margin-left: 2%;
+    padding-left: 2%;
+    padding-top: 5%;
+    margin-top:50px;
+}
+.reallyInput textarea{
+    width: 90%;
+    height: 80%;
+    font-size: 50%;
+    resize: none;
+    border:1px solid #CCCCCC;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+    -webkit-user-select:auto; /*webkit浏览器*/     
+}
+.headTipMT{
+    position: fixed;
+    right: 0px;
+    width: 30%;
+    height: 45px;
+    background: #FFFFFF;
+    z-index: 1005;
+    text-align: center;
+    overflow:auto;
+/*    border-bottom: 0.01rem solid #CCCCCC;*/
+}

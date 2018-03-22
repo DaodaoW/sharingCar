@@ -1,0 +1,299 @@
+body{
+	height: 100%;
+	padding: 0;
+	margin:auto;
+	overflow-x: hidden;
+}
+*{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color:transparent;  
+}
+.closet{
+	float: left;
+	height: 0.7rem;
+	width:0.71rem;
+	background: red;
+	opacity: 0.5;
+	margin-top: 0.1rem;
+	margin-left: 5%;
+	background: url(/left.png) no-repeat 0px 0px;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+}
+#reg{
+	float: left;
+	width: 86%;
+	text-align: right;
+	line-height: 1rem;
+	overflow: hidden;
+	font-size: 45%;
+	background: #FFF;
+	color: #9D9D9D;
+}
+.tit{
+	width: 100%;
+	text-align: center;
+	margin-top: 30%;
+}
+.registerTwo input{
+	width: 74%;
+	height: 1rem;
+	border: none;
+	outline: none;
+	margin-left:13%;
+	font-size: 50%;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);    
+}
+.loginTwo input{
+	width: 74%;
+	height: 1rem;
+	border: none;
+	outline: none;
+	margin-left:13%;
+	font-size: 50%;
+	-webkit-tap-highlight-color:rgba(255,0,0,0);      
+}
+.subUser{
+	text-align: center;
+	width: 74%;
+	margin-left:13%;
+	line-height: 1.2rem;
+	height: 1.2rem;
+	font-size: 50%;
+	color: #FFF;
+	background-color:#FF7A3F;
+	border: none;
+	border-radius: 5px;
+	margin-top:1rem;
+}
+.line{
+	width: 74%;
+	border: 0.5px solid #EEEEEE;
+	margin-left: 13%;
+}
+.loginTwo{
+	position: absolute;
+	background: #FFF;
+	width: 100%;
+	left: 0%;
+}
+.login{
+	float: left;
+/*	background: #F0F0F0;*/
+	width: 100%;
+	animation:login 0.4s;
+    -moz-animation:login 0.4s; 
+    -webkit-animation:login 0.4s; 
+    -o-animation:login 0.4s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes login
+{
+from {left: 0%;}
+to {left: -100%;}
+}
+
+@-moz-keyframes login 
+{
+from {left: 0%;}
+to {left: -100%;}
+}
+
+@-webkit-keyframes login  
+{
+from {left: 0%;}
+to {left: -100%;}
+}
+
+@-o-keyframes login
+{
+from {left: 0%;}
+to {left: -100%;}
+}
+.loginThree{
+	float: left;
+	background: #FFF;
+	width: 100%;
+	animation:loginThree 0.4s;
+    -moz-animation:loginThree 0.4s; 
+    -webkit-animation:loginThree 0.4s; 
+    -o-animation:loginThree 0.4s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes loginThree
+{
+from {left: -100%;}
+to {left: 0%;}
+}
+
+@-moz-keyframes loginThree 
+{
+from {left: -100%;}
+to {left: 0%;}
+}
+
+@-webkit-keyframes loginThree  
+{
+from {left: -100%;}
+to {left: 0%;}
+}
+
+@-o-keyframes loginThree
+{
+from {left: -100%;}
+to {left: 0%;}
+}
+.registerTwo{
+	position: absolute;
+	width: 100%;
+	background: #FFF;
+	left:100%;
+	display: none;
+}
+
+.register{
+	display: block;
+	animation:register 0.2s;
+    -moz-animation:register 0.2s; 
+    -webkit-animation:register 0.2s; 
+    -o-animation:register 0.2s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes register
+{
+from {left: 100%;}
+to {left: 0%;}
+}
+
+@-moz-keyframes register
+{
+from {left: 100%;}
+to {left: 0%;}
+}
+
+@-webkit-keyframes register
+{
+from {left: 100%;}
+to {left: 0%;}
+}
+
+@-o-keyframes register
+{
+from {left: 100%;}
+to {left: 0%;}
+}
+
+.registerThree{
+	display: block;
+	animation:registerThree 0.2s;
+    -moz-animation:registerThree 0.2s; 
+    -webkit-animation:registerThree 0.2s; 
+    -o-animation:registerThree 0.2s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes registerThree
+{
+from {left: 0%;}
+to {left: 100%;}
+}
+
+@-moz-keyframes registerThree
+{
+from {left: 0%;}
+to {left: 100%;}
+}
+
+@-webkit-keyframes registerThree
+{
+from {left: 0%;}
+to {left: 100%;}
+}
+
+@-o-keyframes registerThree
+{
+from {left: 0%;}
+to {left: 100%;}
+}
+.headPage{
+	animation:headPage 0.7s;
+    -moz-animation:headPage 0.7s; 
+    -webkit-animation:headPage 0.7s; 
+    -o-animation:headPage 0.7s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes headPage
+{
+from {margin-top:0%;}
+to {margin-top: 200%;}
+}
+
+@-moz-keyframes headPage
+{
+from {margin-top:0%;}
+to {margin-top: 200%;}
+}
+@-webkit-keyframes headPage
+{
+from {margin-top:0%;}
+to {margin-top: 200%;}
+}
+
+@-o-keyframes headPage
+{
+from {margin-top:0%;}
+to {margin-top: 200%;}
+}
+.headPageT{
+/*	margin-top:200%;
+	height: 100%;
+	overflow: hidden;*/
+	animation:headPageT 0.4s;
+    -moz-animation:headPageT 0.4s; 
+    -webkit-animation:headPageT 0.4s; 
+    -o-animation:headPageT 0.4s; 
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes headPageT
+{
+from {margin-top:200%;}
+to {margin-top: 0%;}
+}
+
+@-moz-keyframes headPageT
+{
+from {margin-top:200%;}
+to {margin-top: 0%;}
+}
+@-webkit-keyframes headPageT
+{
+from {margin-top:200%;}
+to {margin-top: 0%;}
+}
+
+@-o-keyframes headPageT
+{
+from {margin-top:200%;}
+to {margin-top: 0%;}
+}
+/*-webkit-animation-fill-mode:forwards;
+    animation-fill-mode: forwards;*/
+::-webkit-input-placeholder { /* WebKit browsers */ 
+    font-size:90%;
+} 
+::-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+    font-size:90%;
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+   font-size:90%;
+} 
+::-ms-input-placeholder { /* Internet Explorer 10+ */ 
+   font-size:90%;
+}

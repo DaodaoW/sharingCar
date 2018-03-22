@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=yes"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes" name="viewport" /> 
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <link rel="stylesheet" href="MmapStyle.css"/>
+    <link rel="stylesheet" href="MOrder.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.4.2&key=55417b293e144bebeb35e0e731810190&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder,AMap.CitySearch"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script> 
+    <link rel="stylesheet" type="text/css" href="/nav.css">
+<html>
+<head>
+</head>
+<body>
+<div v-bind:style="navStyle" class="nav" id="nav">
+       <div v-bind:style="navOne"  @click="homePage()"  class="allNav1"></div>
+       <div v-bind:style="navTwo" class="allNav2"  @click="togetherPage()" ></div>
+       <div v-bind:style="navThree"  @click="playPage()" class="allNav"></div>
+       <div v-bind:style="navFour"  @click="minePage()" class="mine"></div>
+</div>
+<div class="newMain" id="mapMain" v-bind:style="mainStyle">
+	<div  class="main">
+		<div id='container'></div>
+	    <div id="tip" style="display: none;"></div>
+	    <div class="headInput">
+			<input type="text" @touchend="showRealInput()" readonly="readonly"  v-model="showPlace" placeholder="输入目的地">
+			<div class="btn" @touchend="setPlace()">设为终点</div>
+	    </div>
+	</div>
+	<div class="order">
+		<div class="inputLeft"></div><input v-model="start" type="text" readonly="readonly" placeholder="从哪儿出发？">
+		<div class="line"></div>
+		<div class="inputLeftT"></div><input v-model="end" type="text" readonly="readonly" placeholder="将要去哪儿？">
+		<div class="line"></div>
+		<div class="sub" @touchend="sub()">立即出发</div>
+	</div>
+</div>
+
+<div class="mockInput" v-bind:style="real" id="mockInput">
+	<div class="close" v-bind:class="{toleft:go,toleftT:out}" @touchend="close()"></div>
+	<input type="text" id="tipinput" v-on:focus="leave()" v-on:blur="showClose()" v-model="showPlace" placeholder="输入目的地">
+</div>
+<!-- 订单确认界面 -->
+<div v-bind:class="{checkOrder:show}" v-show="show" id="checkOrder">
+	  <div class="headTip">
+         <div class="titp">确认订单</div>
+      </div>
+      <div class="headTipM">
+         <div id="close" @click="toleft()"></div>
+      </div>
+	  <div class="titpanel">
+	  	<div style="padding: 1rem;">
+	  		<div>
+				<div class="picture"><img v-bind:src="picture"></div>
+				<div class="msg">
+					<div>用户:{{ passenger }}&nbsp&nbsp&nbsp</div>
+					<div>城市:{{ city }}&nbsp&nbsp&nbsp</div>
+				    <div>时间:{{ date }}&nbsp&nbsp&nbsp</div>
+				    <div>手机:{{ tel }}&nbsp&nbsp&nbsp</div>
+				</div>	
+	  		</div>
+	  		<div class="clear"></div>
+	  		<div>
+				 <div class="end"></div>
+				 <div  class="start">{{ startPlace }}</div>
+	  		</div> 
+	  		<div class="clear"></div>	
+	        <div> 
+				 <div class="endT"></div>
+				 <div class="start">{{ endPlace }}</div>
+	  		</div> 
+	  		<div class="clear"></div>		    
+	    </div>
+	    <div class="sub" @click="subOrder()">确认下单</div>
+	  </div>
+</div>
+<div class="identification" v-bind:style="showIdent" id="identification" v-html="nav.ident"></div>
+</body>
+<script type="text/javascript" src="/vue.min.js"></script>
+<script type="text/javascript" src="/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src="/vue-resource.min.js"></script>
+<script type="text/javascript" src="/cookie.js"></script>
+<script type="text/javascript" src="/match.js"></script>
+<script type="text/javascript" src="/MLogin.js"></script>
+<script type="text/javascript" src="/Mmap.js"></script>
+</html>

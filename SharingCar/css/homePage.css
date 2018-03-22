@@ -1,0 +1,184 @@
+html,body{
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline;
+}
+.logo{
+	position: relative;
+	margin-left: 5%;
+}
+.nav{
+	position: fixed;
+	width:1400px;
+	height:111px;
+	background-color: rgb(246,246,248);
+	overflow: hidden;
+	z-index: 10;
+}
+.the{
+	font-size:30px;
+	font-weight: bold;
+	color:rgb(2,178,181);
+	float: left;
+	margin-left:8%;
+	margin-top: 35px;
+}
+.star{
+	font-size: 30px;
+	font-weight: bold;
+	color: rgb(204,204,204);
+	float:left;
+	margin-left: 10px;
+	margin-top: 35px;
+}
+.navName{
+	position: relative;
+	float:left;
+	margin-left:400px;
+	margin-top: 35px;
+	height: 40px;
+	overflow: hidden;
+}
+.tag{
+	margin-left:10px;
+	line-height: 40px;
+	color:rgb(51,51,51);
+	text-decoration:none;
+	position: relative;
+	overflow: hidden;
+	width: 100px;
+	height: 40px;
+	float:left;
+	text-align: center;
+	border-radius: 20px;
+	cursor: pointer;
+	font-family:"楷体";
+	font-size: 20px;
+}
+.navName nav span{
+	margin-left:-10px;
+	line-height: 40px;
+	color:rgb(0,118,222);
+	text-decoration:none;
+	position: relative;
+	overflow: hidden;
+	width: 100px;
+	height: 40px;
+	float:left;
+	text-align: center;
+	border-radius: 20px;
+	cursor: pointer;
+	font-family:"宋体";
+	font-size: 15px;
+}
+.tag:hover{
+	background-color: rgb(2,178,181);
+	color:rgb(255,255,255);
+}
+.firstNavName{
+	margin-left:10px;
+	line-height: 40px;
+	color:rgb(51,51,51);
+	text-decoration:none;
+	position: relative;
+	overflow: hidden;
+	width: 100px;
+	height: 40px;
+	float:left;
+	text-align: center;
+	border-radius: 20px;
+	cursor: pointer;
+	font-family:"楷体";
+	font-size: 20px;
+	background-color: rgb(2,178,181);
+}
+.map{
+	position: relative;
+	text-align: center;
+	width:616px;
+	height:464px;
+	float: left;
+	overflow: hidden;
+	border-radius: 3px;
+	margin: 32px 65px auto;
+}
+.userOp{
+	position: relative;
+	text-align: center;
+	/*margin-top: 100px;*/
+	width:22%;
+	/*height:500px;*/
+	float: left;
+}
+.partTwo{
+	/*width:0px;*/
+	display: none;
+}
+.main{
+	position: relative;
+	width: 100%;
+	margin-top: 111px;
+	overflow: hidden;
+	background: url(/2.jpg) no-repeat 0px 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	/*background-size:1364px 551px;*/
+}
+.next{
+	 height: 500px;
+	 width: 700px;
+	 background-color: rgb(202,203,205);
+     bottom: 0px;
+     left:600px;
+     position: absolute;
+}
+.ipad{
+	width: 746px;
+	height:529px;
+	background-image:url("/mapbackground.png");
+	background-repeat: no-repeat;
+}
+.photo{
+	margin-left:40px;
+	line-height: 40px;
+	color:rgb(51,51,51);
+	text-decoration:none;
+	position: relative;
+	overflow: hidden;
+	width: 38px;
+	height: 38px;
+	float:left;
+	text-align: center;
+	border-radius: 50px;
+	cursor: pointer;
+	font-family:"楷体";
+	font-size: 20px;
+	/*background-image: url("/avtar.png");*/
+	background: url(/avtar.png) no-repeat 0px 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+}
+
+.logoCar{
+	float: left;
+	position: relative;
+	width:391px;
+	height: 440px;
+	margin: 4% 5% auto;
+	border-radius: 20px;
+	background: url(/logoCar.png) no-repeat 0px 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+}

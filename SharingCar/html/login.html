@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css" href="/homePage.css">
+    <link rel="stylesheet" type="text/css" href="/mapStyle.css">
+    <link rel="stylesheet" type="text/css" href="/verification.css">
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main.css"/>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.0&key=55417b293e144bebeb35e0e731810190"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+</head>
+<body >
+<div class="nav" id="nav">
+  <div class="logo">
+    <span class="the">Sharing</span> 
+    <span class="star">Car</span>
+  </div>
+  <div class="navName">
+    <nav>
+       <div class="firstNavName" id="homePage" style="color:rgb(255,255,255);">首页</div>
+       <div class="tag" id="together">同行</div>
+       <div class="tag" id="play">行程</div>
+       <div class="photo" id="picture" onclick="userInfo()"></div>
+       <span id="show">未登录</span>
+    </nav>
+  </div>
+</div>
+ <div class="main" id="main">
+            <div id="mapContainer"></div>
+            <div class ='panel'>
+                <input style="width: 450px;"  id = 'input' placeholder = '点击地图显示地址/输入地址显示位置'/>
+            </div> 
+ <!--   readonly unselectable="on"  <div class="goodMap">
+    </div> -->
+    <script type="text/javascript">
+var map = new AMap.Map('mapContainer', {
+    resizeEnable: true,
+    zoom:11,
+    center: [116.397428, 39.90923]        
+});
+
+ function locationFunc(){
+        var data = JSON.parse(sessionStorage.getItem("location"));
+        if(data==null){
+               // lng=121.611207;
+               // lat=29.911439;
+        }else{
+               lng=data.position.lng;
+               lat=data.position.lat;
+        }
+       
+          var map = new AMap.Map("mapContainer", {
+            resizeEnable: true,
+            center: [lng, lat],//地图中心点
+            zoom: 15,//地图显示的缩放级别
+            keyboardEnable: false
+    });
+    AMap.plugin(['AMap.Autocomplete','AMap.PlaceSearch'],function(){
+      var autoOptions = {
+        input:"input"//使用联想输入的input的id
+      };
+      autocomplete= new AMap.Autocomplete(autoOptions);
+      var placeSearch = new AMap.PlaceSearch({
+            // city:'北京',
+            map:map
+      });
+      AMap.event.addListener(autocomplete, "select", function(e){
+         //TODO 针对选中的poi实现自己的功能
+         placeSearch.setCity(e.poi.adcode);
+         var start=document.getElementById("start");
+         var end=document.getElementById("end");
+         if(start.value==""){
+            start.value=e.poi.district+e.poi.address;
+         }else{
+            end.value=e.poi.district+e.poi.address;
+         }
+         //alert(e.poi.district);
+         placeSearch.search(e.poi.name);//具体名称
+      });
+       var input=document.getElementById("input");
+       input.value=e.poi.district+e.poi.address;
+    });
+
+        AMap.plugin('AMap.Geocoder',function(){
+        var geocoder = new AMap.Geocoder({
+            city: "010"//城市，默认：“全国”
+        });
+        var marker = new AMap.Marker({
+            map:map,
+            bubble:true
+        })
+        var input = document.getElementById('input');
+        var end=document.getElementById('end');
+        function location2(){
+          //alert("kk")
+          var start=document.getElementById('start');
+           var locate=[]
+            locate[0]=lng;
+            locate[1]=lat;
+            marker.setPosition(locate);
+            geocoder.getAddress(locate,function(status,result){
+              if(status=='complete'){
+                 input.value = "(当前定位)"+result.regeocode.formattedAddress;
+                 start.value=result.regeocode.formattedAddress;
+              }else{
+                // message.innerHTML = '无法获取地址'
+                input.value = "无法获取位置";
+              }
+            });
+        }
+        location2();
+        map.on('click',function(e){
+            marker.setPosition(e.lnglat);
+            geocoder.getAddress(e.lnglat,function(status,result){
+              if(status=='complete'){
+                 input.value = result.regeocode.formattedAddress;
+                 end.value=result.regeocode.formattedAddress;
+              }else{
+                // message.innerHTML = '无法获取地址'
+                input.value = "无法获取位置";
+              }
+            })
+        });
+  
+        input.onchange = function(e){
+            var address = input.value;
+            geocoder.getLocation(address,function(status,result){
+              if(status=='complete'&&result.geocodes.length){
+                marker.setPosition(result.geocodes[0].location);
+                map.setCenter(marker.getPosition())
+              }else{
+              }
+            })
+        }
+    });
+}
+locationFunc()
+    </script>
+</body>
+   <script type="text/javascript" src="/jquery-3.2.1.min.js"></script>  
+   <script type="text/javascript" src="/cookie.js"></script>
+   <!-- <script type="text/javascript" src="/map.js"></script>  -->
+   <script type="text/javascript" src="/homePage.js"></script>
+</html>
+
+
+<!-- <html>
+<meta charset="utf-8">
+ <script src="/jquery-3.2.1.min.js"></script>
+<body>
+<input id="file" type="file">  
+<input type="button" value="button" id="sub"> 
+<img src="" height="200" width="200" id="xs"/>   
+<script>  
+
+        function getObjectURL(file){    
+            var url=null     
+            if(window.createObjectURL!=undefined){ // basic    
+                url=window.createObjectURL(file)    
+            }else if(window.URL!=undefined){ // mozilla(firefox)    
+                url=window.URL.createObjectURL(file)    
+            } else if(window.webkitURL!=undefined){ // webkit or chrome    
+                url=window.webkitURL.createObjectURL(file)  
+
+            }    
+            return url  ;  
+        } 
+     var he=document.getElementById("sub");
+     var hh=document.getElementById("file");
+      he.onclick=function(){
+     var objUrl=getObjectURL(hh.files[0]);    
+            var size=hh.files[0].size;    
+            if(size>=1024000*10)bottomTip("图片超过10M了哦",0);    
+            else{    
+              if(objUrl){    
+                $("#xs").attr("src",objUrl); 
+               var imageSize={
+                width:500,
+                height:400
+              }
+              dealImage(objUrl,imageSize); 
+            }    
+            }  
+   }
+// window.check=function(){  
+// var input = document.getElementById("file");
+// var place=input.value.substring(11);
+// if(input.files){  
+//                 //读取图片数据  
+//   var f = input.files[0];  
+//   var reader = new FileReader();  
+//   reader.onload = function (e) {  
+//       var data = e.target.result;  
+//       //加载图片获取图片真实宽度和高度  
+//       var image = new Image();  
+//       image.onload=function(){  
+//           var width = image.width;  
+//           var height = image.height;  
+//           alert(width);
+         
+//           // data.width=width;
+//           // data.height=height;
+//       };  
+
+//           // data.width=width;
+//           // data.height=height;
+//       image.src= data;  
+//   };  
+//       reader.readAsDataURL(f);  
+//   }else{  
+//       var image = new Image();   
+//       image.onload =function(){  
+//           var width = image.width;  
+//           var height = image.height;  
+//           var fileSize = parseInt(image.fileSize)/1024;  
+//           alert(fileSize);  
+//       }  
+//       image.src = input.value;  
+//   } 
+  
+// }  
+
+function dealImage(path, obj){
+ var img = new Image();
+ img.src = path;
+ img.onload = function(){
+  var that = this;
+  // 默认按比例压缩
+  var w = that.width,
+   h = that.height,
+   scale = w / h;
+   w = obj.width || w;
+   h = obj.height || (w / scale);
+  var quality = 0.8;  // 默认图片质量为0.7
+  //生成canvas
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  // 创建属性节点
+  var anw = document.createAttribute("width");
+  anw.nodeValue = w;
+  var anh = document.createAttribute("height");
+  anh.nodeValue = h;
+  canvas.setAttributeNode(anw);
+  canvas.setAttributeNode(anh); 
+  ctx.drawImage(that, 0, 0, w, h);
+  // 图像质量
+  if(obj.quality && obj.quality <= 1 && obj.quality > 0){
+   quality = obj.quality;
+  }
+  // quality值越小，所绘制出的图像越模糊
+  var base64 = canvas.toDataURL('image/jpeg', quality );
+  //alert(base64)
+  // 回调函数返回base64的值
+  //callback(base64);
+       $.ajax({
+      url: 'http://127.0.0.1:1234/getPicture', 
+      data: {
+        image:base64,
+        pictureName:path
+      },
+      async: true,
+      dataType: 'json',
+       success: function(data){
+          if(data.back=="ok"){
+            alert('上传成功');
+        }else{
+            alert('上传失败');
+        }
+    },
+      error: function(err){
+           alert('网络故障');
+        }
+    });
+ }
+}
+</script>
+
+</body>
+</html> -->

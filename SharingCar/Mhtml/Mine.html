@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" /> 
+<head>
+ <link rel="stylesheet" type="text/css" href="Mine.css"/>
+ <link rel="stylesheet" type="text/css" href="/MLogin.css">
+</head>
+<body>
+    <div class="headTip" id="headTip" v-show="mine">
+        <div class="titp">我的</div>
+    </div>
+    <div class="titpanel" id="titpanel" v-show="toollist">
+		<div class="userInfo"  @click="userMsg()">
+			<div class="loginInfo">
+				<img v-bind:src="photo">
+				<div class="userName">
+					<span>{{ userName }}</span>
+				</div>
+				<div class="right">
+					<img src="right.png">
+				</div>
+			</div>
+	    </div>
+	    <div class="blank"></div>
+		<div  class="someList"  v-for="(items,index) in list" @click="toright(index)">
+				<div class="list">
+					<img v-bind:src="items.icon">
+					<div class="listName">
+						<span>{{ items.tip }}</span>
+					</div>
+					<div class="listRight">
+						<img src="right.png">
+					</div>
+				</div>
+		</div>	
+    </div>
+
+  <!--各种子页面 -->
+    <div v-bind:class={showOne:show,showBackT:!show} v-bind:style="showOneStyle" id="showOne">
+      <div class="headTip">
+         <div class="titp">{{ title }}</div>
+      </div>
+      <div class="headTipM">
+         <div class="close" @touchstart="toleft()"></div>
+      </div>
+    <div class="titpanel">
+      <div class="fen"></div>
+      <div class="rep" v-for="(item,index) in leaveWord">
+                    <div class="picture"><img v-bind:src="item.picture"></div>
+                    <div class="replyText" @click="replyPerson(item.nameOfLea,item.WId)">{{ item.nameOfLea }}:<span>{{ item.words }}</span></div>
+                    <div class="replyDate">{{ item.date }}</div>
+                    <div class="bottomline"></div>
+                    <div style="padding:0.15rem" v-for="rep in reply" v-if="item.WId==rep.WId">
+                        <div class="photo"><img v-bind:src="rep.picture"></div>
+                        <div class="replyText2" @click="replyPerson(rep.nameOfRep,rep.WId)">{{ rep.nameOfRep }}回复{{ rep.name }}:&nbsp<span>{{ rep.ReplyWords }}</span></div>
+                        <div class="replyDate2">{{ rep.date }}</div>
+                        <div class="bottomline"></div>
+                    </div>
+      </div>
+     </div>
+       <div class="foot">
+               <input type="text" @click="replyPerson()" readonly="readonly" id="reply" placeholder="发布留言">
+       </div>
+    </div>
+
+
+	<div class="showTwo" v-bind:class={showAction:action,showBack:!action} v-bind:style="showInputStyle" id="showInput">
+	    <div class="headTip">
+	        <div class="tita">留言</div>
+	    </div>
+	    <div class="headTipM" id="headTipM">
+	        <div class="titT" @click="close()">取消</div>
+	    </div>
+	    <div class="headTipMT">
+	        <div class="titT" @click="subReply()">发送</div>
+	    </div>
+	    <div class="reallyInput">
+	        <textarea type="text" autofocus="autofocus" v-bind:placeholder="pla" v-model="discuss" id="reply"></textarea>
+	    </div>
+	</div>
+
+<!-- 车主信息页 -->
+   <div v-bind:class={showOne:show,showBackT:!show} v-bind:style="showTwoStyle" id="showTwo">
+      <div class="headTip">
+         <div class="titp">{{ title }}</div>
+      </div>
+      <div class="headTipM">
+         <div class="close" @touchstart="toleft()"></div>
+      </div>
+      <div class="rep" style="margin-top: 45px;text-align: center;">
+             <div style="font-size: 60%">车牌号:{{num}}</div>
+             <div style="font-size: 60%">车型:{{mode}}</div>
+             <div style="font-size: 60%">颜色:{{color}}</div>
+             <div style="font-size: 60%">驾龄:{{age}}</div>
+      </div>
+    </div>
+  <!--  用户信息页 -->
+  <div v-bind:class={showOne:show,showBackT:!show} v-bind:style="showTwoStyle" id="showThree">
+      <div class="headTip">
+         <div class="titp">{{ title }}</div>
+      </div>
+      <div class="headTipM">
+         <div class="close"  @click="toleft()"></div>
+      </div>
+      <div class="titpanel">
+         <div class="fen"></div>
+         <div class="repInfo">
+              <img v-bind:src="photo">
+              <div class="Name">{{ userName }}<span><img v-bind:src="sex"></span></div>
+              <div class="NameT">联系电话:{{ tel }}</div>
+         </div>
+         <div class="grayline"></div>
+         <div class="outLogin" @click="outofLogin()">退出登录</div>
+      </div>
+   </div>
+<!--   登录注册页面 -->
+ <div v-bind:style="test" style="margin-top:200%;height: 100%;" id="headP" v-bind:class="{headPage: Active1,headPageT:start}" >
+		<div class="closet" @touchend="close()"></div>
+		<div style="width: 100%;height: 1rem;">
+		    <div id="reg" ><span @touchend="push()">{{ title }}</span></div>
+		</div>
+
+		<div class="loginTwo" v-bind:style="login" v-bind:class="{ login: Active,loginThree:ActiveTwo}">
+				<div class="tit">
+					<p>登录</p>
+				</div>
+					<input type="text"   v-model="user" placeholder="请输入用户名">
+				<div class="line"></div>
+					<input type="password"   v-model="password" placeholder="请输入密码">
+				<div class="line"></div>
+				<div class="subUser" id="subUser" @click="sub()">登录</div>
+		</div>
+		<div v-bind:style="register" class="registerTwo"  v-bind:class="{ register: Active2,registerThree:ActiveTwo2}">
+				<div class="tit">
+					<p>注册</p>
+				</div>
+				<div id="ruserName">
+					<input type="text" v-model="RUser" placeholder="请输入用户名">
+				</div>
+				<div class="line"></div>
+				<div id="ruserPwd">
+					<input type="password" v-model="RPwd" placeholder="请输入密码">
+				</div>
+				<div class="line"></div>
+				<div id="tel">
+					<input type="text" v-model="RTel" placeholder="请输入手机号">
+				</div>
+				<div class="line"></div>
+				<div class="subUser" id="regUser" @click="reg()">注册</div>
+		</div>
+</div>
+</body>
+<script type="text/javascript" src="/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src="/vue.min.js"></script>
+<script type="text/javascript" src="/vue-resource.min.js"></script>
+<script type="text/javascript" src="/match.js"></script>
+<script type="text/javascript" src="/cookie.js"></script>
+<script type="text/javascript" src="/Mine.js"></script>
+</html>

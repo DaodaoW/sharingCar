@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+	<title>首页</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" type="text/css" href="/homePage.css">
+    <link rel="stylesheet" type="text/css" href="/mapStyle.css">
+    <link rel="stylesheet" type="text/css" href="/login.css">
+    <link rel="stylesheet" type="text/css" href="/register.css">
+    <link rel="stylesheet" type="text/css" href="/verification.css">
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main.css"/>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.0&key=55417b293e144bebeb35e0e731810190"></script>
+    <script type="text/javascript" src="/homePage.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+</head>
+<body >
+<div class="nav" id="nav">
+	<div class="logo">
+		<span class="the">Sharing</span> 
+		<span class="star">Car</span>
+	</div>
+	<div class="navName">
+		<nav>
+			 <div class="firstNavName" id="homePage" style="color:rgb(255,255,255);">首页</div>
+			 <div class="tag" id="together">同行</div>
+		 	 <div class="tag" id="play">行程</div>
+		 	 <div class="photo" id="picture"></div>
+		 	 <span id="show">未登录</span>
+		</nav>
+	</div>
+</div>
+
+ <div class="main" id="main">
+	<div class="logoCar"></div>
+	<div class="LR">
+		<div class="login" id="login">登录</div>
+		<div class="register" id="register">注册</div>
+		<div class="lLine" id="lLine"></div>
+		<!-- 登录界面 -->
+		<div class="left" id="left" style="margin-left: 100px">
+			<div style="width: 100%;height: 30%;">
+				<div class="icon1"></div><input class="userName" id="userName" type="text" placeholder="用户名/手机" onfocus="borderUser()"; onblur="onblus1()"/>
+			</div>
+			<div style="width: 100%;height: 20%;">
+			 	<div class="icon2"></div><input class="pwd" type="password" id="pwd" placeholder="密码" onfocus="borderPwd()"; onblur="onblus2()"/>
+			</div>
+			<div style="width: 100%;height: 20%;">
+      			<div id="login_form" class="login_form">
+           	    	<div class="yzm"><input type="text" name="code" id="codeInput" class="code" placeholder="输入验证码">
+                	<span id="code" onclick="changeImg()" class="code_pic" ></span><span onclick="changeImg()"; class="code_pi">换一张？</span>
+                	</div>
+			   </div>
+    		</div>
+    		<div style="width: 100%;height: 20%;">
+				<button class="userLogin" id="userLogin">登&nbsp录</button>
+    		</div>
+		</div>
+		<!-- 注册界面 -->
+		<div class="right" id="right"  style="display: none;">
+			<div style="width: 100%;height: 30%;">
+				<div class="icon1"></div><input class="userName" id="user" type="text" placeholder="1~10个字符的用户名" onfocus="borderUserT()"; onblur="onblus1T()"/>
+			</div>
+			<div style="width: 100%;height: 20%;">
+			 	<div class="icon2"></div><input class="pwd" type="password" id="password" placeholder="密码" onfocus="borderPwdT()"; onblur="onblus2T()"/>
+			</div>
+			<div style="width: 100%;height: 20%;">
+			 	<div class="icon2"></div><input class="pwd" type="password" id="passwordTwo" placeholder="再次输入密码" onfocus="borderPwdT1()"; onblur="onblus2T1()"/>
+			</div>
+			<div style="width: 100%;height: 20%;">
+      			<div class="icon3"></div><input class="pwd" type="text" id="tel" placeholder="手机号码" onfocus="borderTel()"; onblur="onblusTel()"/>
+    		</div>
+    		<div style="width: 100%;height: 20%;" id="userRegister">
+				<button class="userLogin">注&nbsp册</button>
+    		</div>
+
+		</div>
+	</div>
+ </div>
+</body>
+	<script type="text/javascript" src="/jquery-3.2.1.min.js"></script> 
+    <script type="text/javascript" src="/verification.js"></script>
+    <script type="text/javascript" src="/cookie.js"></script>
+    <script type="text/javascript" src="/loginT.js"></script>
+    <script type="text/javascript" src="/register.js"></script>
+</html>

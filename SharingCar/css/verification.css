@@ -1,0 +1,63 @@
+      .login_form{
+        width:300px;
+        height:30px;
+        /*border:2px solid #16A085;*/
+        border-radius: 15px;
+        float: left;
+        /*padding:10px;*/
+      }
+      .yzm{
+        height: 35px;
+        margin:0 auto;
+        width: 72%;
+        line-height: 35px;
+        position: relative;
+        margin-bottom: 10px;
+      }
+      .code{
+        outline:none; 
+        width:100px;
+        height:30px;
+        border:2px solid rgb(225,226,228);
+       /* border-color: transparent;*/
+        font-size:16px;
+        border-radius: 10px;
+        padding-left: 5px;
+        margin-left: 80px;
+      }
+      .code_pic{
+        display: block;
+        width:80px;
+        height:35px;
+        background: url(/yanzheng.jpg) no-repeat 0px 0px;
+        background-size:cover;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        color:#FFF;
+        position: absolute;
+        top: 0px;
+        left:200px;
+        border-radius: 5px;
+        text-align: center;
+        font-family: Fantasy;
+        font-size:20px;
+        cursor:pointer;
+      }
+      .code_pi{
+        display: block;
+        width:80px;
+        height:35px;
+        position: absolute;
+        top: 0px;
+        left:280px;
+        border-radius: 5px;
+        text-align: center;
+        font-family: Fantasy;
+        font-size:14px;
+        cursor:pointer;
+        color: blue;
+      }
+
+
+    
